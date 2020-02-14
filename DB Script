@@ -1,0 +1,324 @@
+USE [AgriKart]
+GO
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoles](
+	[Id] [nvarchar](128) NOT NULL,
+	[Name] [nvarchar](256) NOT NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](128) NULL,
+	[ModifiedDate] [datetime] NULL,
+	[ModifiedBy] [nvarchar](128) NULL,
+ CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](128) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserLogins](
+	[LoginProvider] [nvarchar](128) NOT NULL,
+	[ProviderKey] [nvarchar](128) NOT NULL,
+	[UserId] [nvarchar](128) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED 
+(
+	[LoginProvider] ASC,
+	[ProviderKey] ASC,
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserRoles](
+	[UserId] [nvarchar](128) NOT NULL,
+	[RoleId] [nvarchar](128) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUsers](
+	[Id] [nvarchar](128) NOT NULL,
+	[Email] [nvarchar](256) NULL,
+	[EmailConfirmed] [bit] NOT NULL,
+	[PasswordHash] [nvarchar](max) NULL,
+	[SecurityStamp] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[PhoneNumberConfirmed] [bit] NOT NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+	[LockoutEndDateUtc] [datetime] NULL,
+	[LockoutEnabled] [bit] NOT NULL,
+	[AccessFailedCount] [int] NOT NULL,
+	[UserName] [nvarchar](256) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Categories]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categories](
+	[CategoryId] [nvarchar](128) NOT NULL,
+	[CategoryName] [nchar](30) NOT NULL,
+	[Description] [nvarchar](50) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[CategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FarmerDetails]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FarmerDetails](
+	[FarmerID] [nvarchar](128) NOT NULL,
+	[FarmerName] [nchar](30) NOT NULL,
+	[Contact] [int] NOT NULL,
+	[MailID] [nchar](30) NULL,
+	[Address] [nchar](100) NOT NULL,
+	[Pincode] [int] NOT NULL,
+	[Documentation] [binary](50) NOT NULL,
+	[Password] [nchar](20) NOT NULL,
+	[Id] [nvarchar](128) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_FarmerLogin] PRIMARY KEY CLUSTERED 
+(
+	[FarmerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FarmerProductsTable]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FarmerProductsTable](
+	[FarmerProductID] [nvarchar](128) NOT NULL,
+	[FarmerID] [nvarchar](128) NOT NULL,
+	[ProductId] [nvarchar](100) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_FarmerProductsTable] PRIMARY KEY CLUSTERED 
+(
+	[FarmerProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Inventory]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Inventory](
+	[InventoryID] [nvarchar](128) NOT NULL,
+	[FarmerProductID] [nvarchar](128) NOT NULL,
+	[UnitofMeasure] [int] NOT NULL,
+	[Stock] [int] NOT NULL,
+	[Price] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_Inventory] PRIMARY KEY CLUSTERED 
+(
+	[InventoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OrderDetails]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrderDetails](
+	[OrderDetailsId] [nvarchar](128) NOT NULL,
+	[OrderID] [nvarchar](128) NOT NULL,
+	[Orderdate]  AS (sysdatetime()),
+	[Shipping Address] [nvarchar](256) NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[Price] [int] NOT NULL,
+	[InventoryID] [nvarchar](128) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_OrderDetails] PRIMARY KEY CLUSTERED 
+(
+	[OrderDetailsId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Orders]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Orders](
+	[OrderID] [nvarchar](128) NOT NULL,
+	[UserId] [nvarchar](128) NOT NULL,
+	[ProductId] [nvarchar](100) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
+(
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PaymentDetails]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PaymentDetails](
+	[PaymentID] [nvarchar](128) NOT NULL,
+	[Accountholdername] [nchar](50) NULL,
+	[AccountNumber] [int] NOT NULL,
+	[OrderID] [nvarchar](128) NOT NULL,
+	[Amount] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED 
+(
+	[PaymentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 12-02-2020 04:41:45 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductId] [nvarchar](100) NOT NULL,
+	[ProductName] [nchar](10) NULL,
+	[CategoryId] [nvarchar](128) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](128) NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[ModifiedBy] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FarmerDetails]  WITH CHECK ADD  CONSTRAINT [FK_FarmerDetails_AspNetUsers] FOREIGN KEY([Id])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+GO
+ALTER TABLE [dbo].[FarmerDetails] CHECK CONSTRAINT [FK_FarmerDetails_AspNetUsers]
+GO
+ALTER TABLE [dbo].[FarmerProductsTable]  WITH CHECK ADD  CONSTRAINT [FK_FarmerProductsTable_FarmerDetails1] FOREIGN KEY([FarmerID])
+REFERENCES [dbo].[FarmerDetails] ([FarmerID])
+GO
+ALTER TABLE [dbo].[FarmerProductsTable] CHECK CONSTRAINT [FK_FarmerProductsTable_FarmerDetails1]
+GO
+ALTER TABLE [dbo].[FarmerProductsTable]  WITH CHECK ADD  CONSTRAINT [FK_FarmerProductsTable_Products] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([ProductId])
+GO
+ALTER TABLE [dbo].[FarmerProductsTable] CHECK CONSTRAINT [FK_FarmerProductsTable_Products]
+GO
+ALTER TABLE [dbo].[Inventory]  WITH CHECK ADD  CONSTRAINT [FK_Inventory_FarmerProductsTable] FOREIGN KEY([FarmerProductID])
+REFERENCES [dbo].[FarmerProductsTable] ([FarmerProductID])
+GO
+ALTER TABLE [dbo].[Inventory] CHECK CONSTRAINT [FK_Inventory_FarmerProductsTable]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Inventory] FOREIGN KEY([InventoryID])
+REFERENCES [dbo].[Inventory] ([InventoryID])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Inventory]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Orders] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Orders] ([OrderID])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Orders]
+GO
+ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Orders_Orders] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Orders] ([OrderID])
+GO
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Orders]
+GO
+ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Orders_Products] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([ProductId])
+GO
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Products]
+GO
+ALTER TABLE [dbo].[PaymentDetails]  WITH CHECK ADD  CONSTRAINT [FK_Transaction_Orders] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Orders] ([OrderID])
+GO
+ALTER TABLE [dbo].[PaymentDetails] CHECK CONSTRAINT [FK_Transaction_Orders]
+GO
+ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_Product_Category] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Categories] ([CategoryId])
+GO
+ALTER TABLE [dbo].[Products] CHECK CONSTRAINT [FK_Product_Category]
+GO
